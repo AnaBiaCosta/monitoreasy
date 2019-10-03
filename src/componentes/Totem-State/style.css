@@ -1,0 +1,18 @@
+
+.estado-container{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.icon{
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background-color: #00C853
+}
+
+span{
+    color: #00C853
+}

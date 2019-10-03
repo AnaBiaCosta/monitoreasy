@@ -1,0 +1,22 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2{
+    font-size: 35px;
+    margin-top: 28px;
+    margin-bottom: 30px;
+    padding-left: 25px
+}
+
+.totens-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-left: 25px;
+    padding-right: 25px
+}
+
+.espace{
+    margin-bottom: 30px
+}

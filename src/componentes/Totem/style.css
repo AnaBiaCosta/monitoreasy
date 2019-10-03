@@ -1,0 +1,22 @@
+.totem-body{
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    height: 180px;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #1E1E1E;
+    border-radius: 15px;
+    color: white;
+    margin-bottom: 20px
+}
+
+.totem-img{
+    width: 85px;
+    height: 135px;
+    background-color: #C4C4C4
+}
+
+.totem-information{
+    width: 250px
+}
