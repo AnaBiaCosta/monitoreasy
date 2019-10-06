@@ -5,5 +5,7 @@ button{
     border-radius: 7px;
     padding: 5px;
     color: white;
-    background-color: #00C853
+    background-color: #00C853;
+    font-weight: 700;
+    cursor: pointer
 }

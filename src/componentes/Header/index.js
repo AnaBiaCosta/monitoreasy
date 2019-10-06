@@ -5,7 +5,7 @@ import './style.css'
 const Header = () => (
     <header>
         <h1>Linha 1 - Estação Santana</h1>
-        <Botao />
+        <Botao text='outro botão'/>
     </header>
 ) 
   

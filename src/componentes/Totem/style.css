@@ -1,3 +1,8 @@
+span{
+    color: white
+}
+
+
 .totem-body{
     display: flex;
     justify-content: space-between;
@@ -8,15 +13,99 @@
     background-color: #1E1E1E;
     border-radius: 15px;
     color: white;
-    margin-bottom: 20px
-}
-
-.totem-img{
-    width: 85px;
-    height: 135px;
-    background-color: #C4C4C4
+    margin-bottom: 56px
 }
 
 .totem-information{
-    width: 250px
+    text-align: right;
 }
+
+.mb{
+    margin-bottom: 5px
+}
+
+.totem-identification{
+    margin-bottom: 65px;
+}
+
+.text-bold{
+    font-weight: 700
+}
+
+.text-normal{
+    font-weight: 300
+}
+
+
+.estado-container{
+    display: flex;
+    align-items: center;
+}
+
+
+.estado-container{
+    margin-bottom: 20px
+}
+
+
+.icon{
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background-color: white
+}
+
+
+.text-numbers{
+    font-size: 20px
+}
+
+
+.number{
+    font-weight: 700; 
+}
+
+
+.totem-name{
+    margin-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+
+
+
+.icon.disable{
+    background-color: #969595;
+}
+
+.icon.normal{
+    background-color: #00C853;
+}
+
+.icon.alert{
+    background-color: #F0D906
+}
+
+.icon.danger{
+    background-color: #FF2E00;
+}
+
+
+.disable{
+    color: #969595;
+}
+
+.normal{
+    color: #00C853;
+}
+
+.alert{
+    color: #F0D906
+}
+
+.danger{
+    color: #FF2E00;
+}
+
