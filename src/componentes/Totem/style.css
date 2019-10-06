@@ -17,6 +17,9 @@ span{
 }
 
 .totem-information{
+    display: flex;
+    flex-direction: column;
+    
     text-align: right;
 }
 
@@ -77,7 +80,7 @@ span{
 
 
 .icon.disable{
-    background-color: #969595;
+    background-color: #575757
 }
 
 .icon.normal{
@@ -94,18 +97,21 @@ span{
 
 
 .disable{
-    color: #969595;
+    color: #575757
 }
 
-.normal{
+.text.normal{
     color: #00C853;
 }
 
-.alert{
+.text.alert{
     color: #F0D906
 }
 
-.danger{
+.text.danger{
     color: #FF2E00;
 }
 
+.totem-body.disable{
+    background-color: #969595;
+}

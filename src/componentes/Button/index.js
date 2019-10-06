@@ -1,8 +1,8 @@
 import React from 'react'
 import './style.css'
 
-const Botao = ({ text, variant = 'primary' }) => (
-    <div className={variant} >
+const Botao = ({ text, variant}) => (
+    <div className={`button ${variant}`} >
         <button>{text}</button>
     </div>
 )
