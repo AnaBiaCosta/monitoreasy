@@ -1,2 +1,2 @@
 # monitoreasy
-Arquivos dos componentes do site monitoresy
+Arquivos da dashboard do site monitoresy
