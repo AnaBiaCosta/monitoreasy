@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import './style.css' 
 
 const CurrentStatus = () => (
-    
+
 )
 
 export default CurrentStatus

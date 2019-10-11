@@ -24,6 +24,7 @@ const Totem = ({ stateId, name, serialNumber, timeOperation, cpu, memory, disc }
         memory = '0%'
         disc = '0%'
         timeOperation = '00:00:00'
+
     }
 
 
@@ -56,7 +57,8 @@ const Totem = ({ stateId, name, serialNumber, timeOperation, cpu, memory, disc }
                     <p className="text-bold">tempo ativo: <span className={`text-normal ${state}`}>{timeOperation}</span></p>
                 </div>
 
-                <Botao text="+ detalhes" variant='primary'  />
+
+                <Botao text="+ detalhes" variant={stateId === 'disable' ? 'btn-disable' : 'primary'} />
             </div>
         </div >
     )

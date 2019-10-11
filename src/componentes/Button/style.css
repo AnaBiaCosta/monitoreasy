@@ -6,7 +6,23 @@ button{
     color: white;
     font-weight: 700;
     cursor: pointer;
+    
+}
+
+.primary{
     border: 2px solid #00C853;
     background-color: #00C853;
     border-radius: 7px;
+    text-align: center;
 }
+
+.btn-disable{
+    border: 2px solid #969595;
+    background-color: #575757;
+    border-radius: 7px;
+    text-align: center;
+}
+
+
+
+
