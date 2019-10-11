@@ -3,6 +3,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import Home from './pages/Home';
 import Line from './pages/Line';
+import Teste from './pages/Teste';
 
 import './style-reset.css'
 import './style-all.css'
@@ -13,6 +14,7 @@ const App = () => (
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/line/:id" component={Line}/>
+                <Route exact path="/teste" component={Teste}/>
                 <Route component={() => <div>Pagina não existe</div>}/>
             </Switch>
         </BrowserRouter>
