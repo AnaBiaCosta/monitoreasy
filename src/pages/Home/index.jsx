@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { Doughnut } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 
 import Header from '../../componentes/Header'
@@ -15,7 +15,7 @@ export default function Home(){
         <Menu />
         <h2>Sou a home</h2> 
         <Link to="/line/12">Ir para a linha</Link>
-        <Doughnut data={{
+       <div style={{width:'400px', height:'200px'} }> <Line data={{
 	labels: [
 		'Red',
 		'Green',
@@ -33,6 +33,6 @@ export default function Home(){
 		'#36A2EB',
 		'#FFCE56'
 		]
-	}]}} />
+	}]}} /></div>
     </>
 }
