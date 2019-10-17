@@ -1,3 +1,35 @@
-* {
-    background-color: black;
+.containerTotem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 99,5%;
 }
+
+.containerTotem .item {
+    margin: 30px 10px;
+    border: 2px solid #f1f1f1;
+}
+
+/*
+@media (max-width: 768px) {
+    .containerTotem .item {
+        width: 100%;
+        margin: 10px;
+    }
+}
+@media (max-width: 992px) {
+    .containerTotem .item {
+        width: 50%;
+        margin: 10px;
+    }
+}
+
+
+@media (min-width: 993px) {
+    .containerTotem .item {
+        width: 50%;
+        margin: 10px;
+    }
+}*/
