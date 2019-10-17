@@ -2,6 +2,7 @@ import React from 'react';
 
 import Header from '../../componentes/Header'
 import Menu from '../../componentes/Menu'
+import '../TotemInfo/style.css'
 
 import CurrentStatus from '../../componentes/CurrentStatus'
 
@@ -12,5 +13,6 @@ export default function Home(){
         <Header />
         <Menu />
         <CurrentStatus/>
+
     </>
 }
