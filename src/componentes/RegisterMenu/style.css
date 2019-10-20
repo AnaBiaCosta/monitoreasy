@@ -2,7 +2,15 @@
     background-color:#333333;
     height: 210px;
     color: white;
-    padding: 20px;
+    padding: 25px;
+}
+
+.registro-menu a{
+    color: white;
+}
+
+.registro-menu a:hover{
+    color: #C4C4C4
 }
 
 .registro-menu .title-container{
@@ -33,4 +41,10 @@
     width: 350px;
     margin-right: 40px;
     margin-top: 20px;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
 }

@@ -1,7 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-
 import './style.css'
 
 
@@ -21,7 +18,7 @@ export default function TotemRegister() {
                 <CardRegister cardName="Disco"/>
                 <CardRegister cardName="Processos"/>
             </div>
-            <AlertCard/>
+            <AlertCard cardName="Histórico de alertas"/>
         </div>
     </>
 }

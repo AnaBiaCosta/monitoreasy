@@ -5,8 +5,7 @@ button{
     padding: 5px;
     color: white;
     font-weight: 700;
-    cursor: pointer;
-    
+    cursor: pointer; 
 }
 
 .primary{

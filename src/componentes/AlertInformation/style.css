@@ -1,0 +1,39 @@
+
+.info-container{
+    display: flex;
+    margin-top: 20px;
+}
+
+.card-text{
+    color: #747474;
+    font-size: 13px;
+}
+
+.text-container{
+    width: 75%;
+}
+
+.circle-container{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.danger{
+    background-color: #FF2E00;
+}
+
+.alert{
+    background-color: #F0D906;
+}
+
+.normal{
+    background-color: #00C853;
+}

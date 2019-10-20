@@ -1,24 +1,24 @@
 import React from 'react'
+import AlertInformation from '../AlertInformation'
 import './style.css'
 
-const AlertCard = () => (
+
+const AlertCard = ({cardName}) => (
     <div className="alert-body">
-        <h2>Histórico de alertas</h2>
+        <h2>{cardName}</h2>
+        <AlertInformation statusColor="alert" status="Aviso!" details="Secondary line text lorem ipsum dapibus, neque id cursus faucibus"/>
+        <AlertInformation statusColor="danger" status="Erro!" details="Secondary line text lorem ipsum dapibus, neque id cursus faucibus"/>
+        <AlertInformation statusColor="alert" status="Aviso!" details="Secondary line text lorem ipsum dapibus, neque id cursus faucibus"/>
+        <AlertInformation statusColor="alert" status="Aviso!" details="Secondary line text lorem ipsum dapibus, neque id cursus faucibus"/>
+        <AlertInformation statusColor="danger" status="Erro!" details="Secondary line text lorem ipsum dapibus, neque id cursus faucibus"/>
+        <AlertInformation statusColor="danger" status="Erro!" details="Secondary line text lorem ipsum dapibus, neque id cursus faucibus"/>
+        <AlertInformation statusColor="alert" status="Aviso!" details="Secondary line text lorem ipsum dapibus, neque id cursus faucibus"/>
+        <AlertInformation statusColor="danger" status="Erro!" details="Secondary line text lorem ipsum dapibus, neque id cursus faucibus"/>
+        
+        
 
-        <div className="info-container">
-        <div className="circle-container">
-            <div>
-                <img src="./img/alert.png"></img>
-            </div>
-        </div>
-
-        <div className="text-container">
-            <p>94%</p>
-            <p>23/09/20 - 22:23</p>
-            <p>Details: line text lorem ipsum </p>
-        </div>
+      
     </div>
-    </div>
-)
-
+) 
+  
 export default AlertCard
