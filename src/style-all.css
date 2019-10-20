@@ -22,3 +22,7 @@ h2{
 .espace{
     margin-bottom: 30px
 }
+
+.text-bold{
+    font-weight: bold;
+}

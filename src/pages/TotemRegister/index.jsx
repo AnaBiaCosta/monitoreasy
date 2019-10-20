@@ -16,10 +16,10 @@ export default function TotemRegister() {
         <Menu />
         <div className="container">
             <div className="cards-container">
-                <CardRegister statusColor="danger" percent="94%" dateTime="12/03/13 - 12:00:30" details="line text lorem ipsum " />
-                <CardRegister />
-                <CardRegister />
-                <CardRegister />
+                <CardRegister cardName="CPU"/>
+                <CardRegister cardName="Memória"/>
+                <CardRegister cardName="Disco"/>
+                <CardRegister cardName="Processos"/>
             </div>
             <AlertCard/>
         </div>
