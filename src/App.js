@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Line from './pages/Line';
 import Teste from './pages/Teste';
 import TotemInfo from './pages/TotemInfo';
+import TotemRegister from './pages/TotemRegister';
 
 import './style-reset.css'
 import './style-all.css'
@@ -17,6 +18,7 @@ const App = () => (
                 <Route exact path="/line/:id" component={Line}/>
                 <Route exact path="/teste" component={Teste}/>
                 <Route exact path="/toteminfo" component={TotemInfo}/>
+                <Route exact path="/totemregister" component={TotemRegister}/>
                 <Route component={() => <div>Pagina não existe</div>}/>
             </Switch>
         </BrowserRouter>
