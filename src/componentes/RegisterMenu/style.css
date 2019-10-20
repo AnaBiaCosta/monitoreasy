@@ -1,0 +1,36 @@
+.registro-menu{
+    background-color:#333333;
+    height: 210px;
+    color: white;
+    padding: 20px;
+}
+
+.registro-menu .title-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.registro-menu h1{
+    margin: 0px;
+    margin-bottom: 50px;
+}
+
+.search-container{
+    display: flex;
+}
+
+.search-container input{
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    background-color: #333333;
+    color: white;
+    width: 350px;
+    border-bottom: 2px solid #00C853;
+    margin-top: 20px;
+}
+
+.search-container div{
+    width: 350px;
+    margin-right: 40px;
+    margin-top: 20px;
+}

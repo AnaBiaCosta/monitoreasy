@@ -1,0 +1,35 @@
+.card-body{
+    width: 352px;
+    border: 1px solid #C4C4C4;
+    padding: 20px 20px;
+    margin-bottom: 20px;
+}
+
+.card-body h2{
+    margin: 0px;
+    font-weight: 600;
+    padding: 0px;
+}
+
+.info-container{
+    display: flex;
+    margin-top: 20px;
+}
+
+.text-container{
+    width: 75%;
+}
+
+.circle-container{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle{
+    border-radius: 50%;
+    background-color: red;
+    height: 40px;
+    width: 40px;
+}

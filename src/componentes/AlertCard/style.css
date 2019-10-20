@@ -1,0 +1,11 @@
+.alert-body{
+    width: 330px;
+    border: 1px solid #C4C4C4;
+    padding: 20px;
+    background-color: #FAFAFA;
+}
+
+.alert-body h2{
+    padding: 0px;
+    margin: 0px;
+}
