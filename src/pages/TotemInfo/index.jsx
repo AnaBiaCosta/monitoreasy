@@ -1,7 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 import Header from '../../componentes/Header'
-import Menu from '../../componentes/Menu'
 import '../TotemInfo/style.css'
 
 import CurrentStatus from '../../componentes/CurrentStatus'
@@ -11,7 +11,16 @@ import CurrentStatus from '../../componentes/CurrentStatus'
 export default function Home() {
     return <>
         <Header />
-        <Menu />
+        <nav>
+            <ul>
+                <li><Link to="/">início</Link></li>
+                <li>></li>
+                <li><Link to="/line/3">estação santana</Link></li>
+                <li>></li>
+                <li className="text-bold"><Link to="/toteminfo">STN 01</Link></li>
+            </ul>
+        </nav>
+
         <div class="containerTotem">
             <CurrentStatus />
             <div className="item">

@@ -2,10 +2,10 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import './style.css'
 
-const Menu = () => (
+const Menu = ({info}) => (
     <nav>
         <ul>
-            <li><Link to="/">Início</Link></li>
+            <li><Link to="/">{info}</Link></li>
         </ul>
     </nav>
 )

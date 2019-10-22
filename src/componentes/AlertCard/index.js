@@ -14,10 +14,6 @@ const AlertCard = ({cardName}) => (
         <AlertInformation statusColor="danger" status="Erro!" details="Secondary line text lorem ipsum dapibus, neque id cursus faucibus"/>
         <AlertInformation statusColor="alert" status="Aviso!" details="Secondary line text lorem ipsum dapibus, neque id cursus faucibus"/>
         <AlertInformation statusColor="danger" status="Erro!" details="Secondary line text lorem ipsum dapibus, neque id cursus faucibus"/>
-        
-        
-
-      
     </div>
 ) 
   

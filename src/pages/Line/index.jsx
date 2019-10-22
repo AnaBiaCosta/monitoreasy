@@ -3,7 +3,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Header from '../../componentes/Header'
 import Totem from '../../componentes/Totem'
-import Menu from '../../componentes/Menu'
 import axios from 'axios';
 
 //simulação do backend para testes
@@ -79,7 +78,15 @@ export default function Teste(){
 
   return <>
       <Header />
-      <Menu />
+
+      <nav>
+            <ul>
+                <li><Link to="/">início</Link></li>
+                <li>></li>
+                <li className="text-bold"><Link to="/line/3">estação santana</Link></li>
+            </ul>
+        </nav>
+
       <h2>Totens</h2> 
 
       <div className="totens-container">
