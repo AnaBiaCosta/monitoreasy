@@ -16,7 +16,7 @@ export default function TotemRegister() {
             <ul>
                 <li><Link to="/">início</Link></li>
                 <li>></li>
-                <li><Link to="/line">estação santana</Link></li>
+                <li><Link to="/line/3">estação santana</Link></li>
                 <li>></li>
                 <li><Link to="/toteminfo">STN 01</Link></li>
                 <li>></li>

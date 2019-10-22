@@ -8,6 +8,7 @@ button{
     cursor: pointer; 
 }
 
+
 .primary{
     border: 2px solid #00C853;
     background-color: #00C853;
@@ -20,7 +21,7 @@ button{
     background-color: #575757;
     border-radius: 7px;
     text-align: center;
-}
+} 
 
 
 
