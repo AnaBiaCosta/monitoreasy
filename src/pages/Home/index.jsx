@@ -1,15 +1,22 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 import Header from '../../componentes/Header'
 import MetroMap from '../../componentes/MetroMap'
-import Menu from '../../componentes/Menu'
 
 // Exemplo com outros gráficos: 
 // https://github.com/jerairrest/react-chartjs-2
-export default function Home(){
+export default function Home() {
     return <>
         <Header />
-        <Menu />
-        <MetroMap/>
+
+        <nav>
+            <ul>
+                <li className="text-bold"><Link to="/">início</Link></li>
+            </ul>
+        </nav>
+
+
+        <MetroMap />
     </>
 }
