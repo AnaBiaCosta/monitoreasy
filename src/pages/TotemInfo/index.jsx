@@ -3,8 +3,9 @@ import {Link} from 'react-router-dom'
 
 import Header from '../../componentes/Header'
 import '../TotemInfo/style.css'
-//import '../TotemInfo/charts.js'
+
 import {Doughnut} from 'react-chartjs-2'
+import {Line} from 'react-chartjs-2'
 
 import CurrentStatus from '../../componentes/CurrentStatus'
 
@@ -12,7 +13,7 @@ var randomScalingFactor = function() {
     return Math.round(Math.random() * 100);
 };
 
-var config = {
+var dataMem = {
     type: 'doughnut',
     labels: ["Em uso", "Disponível"],
     datasets: [{
@@ -26,6 +27,7 @@ var config = {
         ],
         label: 'Memória'
     }],
+    /*
     options: {
         responsive: true,
         legend: {
@@ -40,13 +42,37 @@ var config = {
             animateScale: true,
             animateRotate: true
         }
-    }
+    }*/
 };
 
+const dataCPU = {
+    labels: ['19:30', '19:31', '19:32', '19:33', '19:34', '19:35', '19:36'],
+    datasets: [
+      {
+        label: 'CPU em GHz',
+        fill: false,
+        lineTension: 0.01,
+        backgroundColor: '#01579B',
+        borderColor: '#01579B',
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: 'rgba(75,192,192,1)',
+        pointBackgroundColor: '#fff',
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
+        data: [65, 59, 80, 81, 56, 55, 40]
+      }
+    ]
+  };
 
 
-// Exemplo com outros gráficos: 
-// https://github.com/jerairrest/react-chartjs-2
 export default function Home() {
     return <>
         <Header />
@@ -62,16 +88,18 @@ export default function Home() {
 
         <div class="containerTotem">
             <CurrentStatus />
-            <div id="canvas-holder">
-                <p>Memória</p>
-                <Doughnut data={config} />
+            <div className="item-chart">
+                <p class="chart-title">CPU</p>
+                <Line data={dataCPU} />
 	        </div>
-            <div className="item">
-                <img src="https://aws1.discourse-cdn.com/elastic/original/2X/5/5142ad613f9ce060017b1cc2c8ca0a8dfccbc4fe.png" alt="grafico 2"/>
-            </div>
-            <div className="item">
-                <img src="https://aws1.discourse-cdn.com/elastic/original/2X/5/5142ad613f9ce060017b1cc2c8ca0a8dfccbc4fe.png" alt="grafico 3"/>
-            </div>
+            <div className="item-chart">
+                <p class="chart-title">Memória</p>
+                <Doughnut data={dataMem} />
+	        </div>
+            <div className="item-chart">
+                <p class="chart-title">Disco</p>
+                <Doughnut data={dataMem} />
+	        </div>
         </div>
         
     </>

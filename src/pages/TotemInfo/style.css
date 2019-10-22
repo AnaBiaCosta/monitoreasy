@@ -4,12 +4,36 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 99,5%;
+    width: 99, 5%;
 }
 
 .containerTotem .item {
     margin: 30px 10px;
     border: 2px solid #f1f1f1;
+    width: 35%;
+}
+
+.containerTotem .item-chart {
+    margin: 30px 10px;
+    border: 2px solid #f1f1f1;
+    width: 35%;
+    padding: 15px;
+}
+
+.chart-title {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+    border-bottom: 2px solid #f1f1f1;
+    padding: 5px 0px;
+    margin-bottom: 10px;
 }
 
 canvas {
@@ -18,9 +42,11 @@ canvas {
     -ms-user-select: none;
 }
 
-#canvas-holder{
+#canvas-holder {
     width: 40%;
 }
+
+
 /*
 @media (max-width: 768px) {
     .containerTotem .item {
