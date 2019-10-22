@@ -71,7 +71,7 @@ export default function Teste(){
       async function getLines(){
           const res = await axios.get('http://localhost:4550/totems/list');
           setTotems(res.data.data);
-          console.log(res.data);
+          console.table(res.data.data);
       }
       getLines();
       

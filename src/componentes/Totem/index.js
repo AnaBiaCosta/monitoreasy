@@ -13,13 +13,13 @@ const dicionario = {
 
 
 // pegando os valores enviados pelo backend
-const Totem = ({ stateId, name, serialNumber, timeOperation, cpu, memory, disc }) => {
+const Totem = ({ status, name, serialNumber, timeOperation, cpu, memory, disc }) => {
     //mensagem exibida enquanto os dados são carregados
     const [state, setState] = React.useState('procurando...')
 
 
     //seta os valores em 0 caso o totem esteja desabilitado
-    if (stateId == 'disable') {
+    if (status == 'disable') {
         cpu = '0%'
         memory = '0%'
         disc = '0%'
@@ -29,10 +29,10 @@ const Totem = ({ stateId, name, serialNumber, timeOperation, cpu, memory, disc }
 
 
 
-    // a partir do valr do stateId troca as cores dos totens
+    // a partir do valr do status troca as cores dos totens
     React.useEffect(() => {
-        setState(stateId)
-    }, [])
+        setState(status)
+    }, [status])
 
     return (
         <div className={`totem-body ${state}`} >
@@ -58,7 +58,7 @@ const Totem = ({ stateId, name, serialNumber, timeOperation, cpu, memory, disc }
                 </div>
 
 
-                <Botao text="+ detalhes" variant={stateId === 'disable' ? 'btn-disable' : 'primary'} />
+                <Botao text="+ detalhes" variant={status === 'disable' ? 'btn-disable' : 'primary'} />
             </div>
         </div >
     )
