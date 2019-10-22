@@ -1,14 +1,2 @@
-nav{
-    display: flex;
-    align-items: center;
-    height: 35px;
-    padding-left: 25px;
-    padding-right: 25px;
-    background-color: #E3E3E3;
-}
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
+
