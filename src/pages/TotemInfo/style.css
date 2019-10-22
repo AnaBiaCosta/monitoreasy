@@ -12,6 +12,15 @@
     border: 2px solid #f1f1f1;
 }
 
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#canvas-holder{
+    width: 40%;
+}
 /*
 @media (max-width: 768px) {
     .containerTotem .item {
