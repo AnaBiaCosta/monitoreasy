@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import Header from '../../componentes/Header'
-import Menu from '../../componentes/Menu'
 
 import axios from 'axios';
 
@@ -30,7 +29,7 @@ export default function Teste(){
 
     return <>
         <Header />
-        <Menu info="hehee"/>
+     
         <h2>teste</h2> 
         {lines.map(line => <TempTotem color={line.color} name={line.name} id={line.id}/>)}
     </>
