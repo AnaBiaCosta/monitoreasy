@@ -107,6 +107,7 @@ class Line{
             );
             p.noStroke();
             p.fill(station.enabled ? colors.enabled : colors.disabled);
+            p.textStyle(p.BOLD);
 
             p.push();
             p.translate(x,y - 20);
@@ -115,6 +116,7 @@ class Line{
                 p.fill(255,0,0);
             }
             p.text(station.name, 0, 0);
+            p.textStyle(p.NORMAL);
             p.pop();
         })
 
