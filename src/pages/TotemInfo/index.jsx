@@ -15,7 +15,7 @@ var randomScalingFactor = function() {
 };
 
 const dataBar = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: ['19:30', '19:31', '19:32', '19:33', '19:34', '19:35', '19:36'],
     datasets: [
       {
         label: 'Disco utilizado em %',
