@@ -6,12 +6,28 @@ import '../TotemInfo/style.css'
 
 import {Doughnut} from 'react-chartjs-2'
 import {Line} from 'react-chartjs-2'
+import {Bar} from 'react-chartjs-2';
 
 import CurrentStatus from '../../componentes/CurrentStatus'
 
 var randomScalingFactor = function() {
     return Math.round(Math.random() * 100);
 };
+
+const dataBar = {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [
+      {
+        label: 'Disco utilizado em %',
+        backgroundColor: '#82B1FF',
+        borderColor: '#004D40',
+        borderWidth: 1,
+        hoverBackgroundColor: '#82B1FF',
+        hoverBorderColor: '#004D40',
+        data: [65, 59, 80, 81, 56, 55, 40]
+      }
+    ]
+  };
 
 var dataMem = {
     type: 'doughnut',
@@ -92,12 +108,21 @@ export default function Home() {
                 <p class="chart-title">CPU</p>
                 <Line data={dataCPU} />
 	        </div>
-            <div className="item-chart">
-                <p class="chart-title">Memória</p>
-                <Doughnut data={dataMem} />
-	        </div>
+            
             <div className="item-chart">
                 <p class="chart-title">Disco</p>
+                <Bar
+          data={dataBar}
+          width={100}
+          height={50}
+          options={{
+            maintainAspectRatio: false
+          }}
+        />
+	        </div>
+
+            <div className="item-chart">
+                <p class="chart-title">Memória</p>
                 <Doughnut data={dataMem} />
 	        </div>
         </div>
