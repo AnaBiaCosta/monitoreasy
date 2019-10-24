@@ -24,7 +24,6 @@ const Totem = ({ stateId, name, serialNumber, timeOperation, cpu, memory, disc }
         memory = '0%'
         disc = '0%'
         timeOperation = '00:00:00'
-
     }
 
 
@@ -35,7 +34,8 @@ const Totem = ({ stateId, name, serialNumber, timeOperation, cpu, memory, disc }
     }, [])
 
     return (
-        <div className={`totem-body ${state}`} >
+        // <div className={`totem-body ${state}`} >
+            <div className="totem-body" >
             <div>
                 <h3 className="totem-name">{name}</h3>
 

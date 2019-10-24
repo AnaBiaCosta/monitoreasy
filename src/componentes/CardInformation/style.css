@@ -25,15 +25,3 @@
     height: 40px;
     width: 40px;
 }
-
-.danger{
-    background-color: #FF2E00;
-}
-
-.alert{
-    background-color: #F0D906;
-}
-
-.normal{
-    background-color: #00C853;
-}
