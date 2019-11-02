@@ -2,6 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import P5Wrapper from 'react-p5-wrapper';
 import stationSource from './placeholder_metro.json';
+import axios from 'axios'
 
 const colors = {
     black: "#333",
@@ -198,11 +199,12 @@ function sketch(p, history){
 
     const source = Object.keys(stationSource).map( line => ({
         name: line,
-        data: stationSource[line].map(mapSource),
+        data: stationSource[line].stations.map(mapSource),
+        color: stationSource[line].color,
     }))
 
     const lines = source.map( (line, index) => 
-        new Line(p, index + 1, colors[line.name], line.data)
+        new Line(p, index + 1, line.color, line.data)
     )
 
     p.setup = () => {
@@ -218,6 +220,13 @@ function sketch(p, history){
 }
 
 function MetroMap({history}){
+    React.useEffect(() => {
+        async function receberLinhas(){
+            const res = await axios.get('http://localhost:4550/lines');
+            console.log(res.ok, res.data)
+        }
+        receberLinhas()
+    }, [])
     return (
         <div style={{display: 'flex', justifyContent:'center', margin: 16, alignItems: 'center'}}>
             <P5Wrapper sketch={p => sketch(p, history)}/>

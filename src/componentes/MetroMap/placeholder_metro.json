@@ -1,64 +1,38 @@
 {
-  "blue": [
-    "Luz",
-    "São Bento",
-    "Sé",
-    "Liberdade",
-    "São Joaquim",
-    "Vergueiro",
-    "Paraíso",
-    "Ana Rosa",
-    "Vila Mariana",
-    "Santa Cruz",
-    "Praça da Árvore",
-    "Saúde",
-    "São Judas",
-    "Conceição",
-    "Jabaquara"
-  ],
-  "green": [
-    "Vila Madalena",
-    "Sumaré",
-    "Clínicas",
-    "Consolação",
-    "Trianon-Masp",
-    "Brigadeiro",
-    "Paraíso",
-    "Ana Rosa",
-    "Chácara Klabin",
-    "Santos-Imigrante",
-    "Alto do Ipiranga",
-    "Sacomã",
-    "Tamanduateí",
-    "Vila Prudente"
-  ],
-  "red": [
-    "Barra funda",
-    "Marechal Deodoro",
-    "Santa Cecília",
-    "República",
-    "Anhangabaú",
-    "Sé",
-    "Pedro II",
-    "Brás",
-    "Bresser-Mooca",
-    "Belém",
-    "Tatuapé",
-    "Carrão",
-    "Penha",
-    "Vila Matilde",
-    "Guilhermina Esperança",
-    "Patriarca",
-    "Artur Alvim",
-    "Corinthians Itaquera"
-  ],
-  "yellow": [
-    "Butantã",
-    "Pinheiros",
-    "Faria Lima",
-    "Paulista",
-    "República",
-    "Luz",
-    "Arnaldo"
-  ]
+  "blue": {
+      "color": "#0250a5",
+      "stations": [
+        "Luz",
+        "São Bento",
+        "São Judas",
+        "Conceição",
+        "Jabaquara"
+    ]
+  },
+  "green": {
+      "color": "#00805c",
+      "stations": [
+        "Vila Madalena",
+        "Sumaré",
+        "Tamanduateí",
+        "Vila Prudente"
+    ]
+  },
+  "red": {
+      "color": "#fa3d17",
+      "stations": [
+        "Barra funda",
+        "Marechal Deodoro",
+        "Santa Cecília",
+        "Corinthians Itaquera"
+    ]
+  },
+  "yellow": {
+      "color": "#fad50b",
+      "stations": [
+        "República",
+        "Luz",
+        "Arnaldo"
+    ]
+  }
 }

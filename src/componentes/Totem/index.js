@@ -3,6 +3,7 @@ import Botao from '../Button'
 import './style.css'
 
 
+//TODO: Arquivo de configuração
 // Dicionário construído para trocar o status do totem
 const dicionario = {
     disable: 'desabilitado',
