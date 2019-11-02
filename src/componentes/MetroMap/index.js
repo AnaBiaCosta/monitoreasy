@@ -175,7 +175,7 @@ class Line{
     }
 }
 
-function sketch(p, history){
+function sketch(p, history, dataFromDatabase){
 
     const generateTotems = () => {
         return new Array(Math.floor(Math.random() * 4 + 1))
@@ -197,15 +197,19 @@ function sketch(p, history){
         }
     }
 
-    const source = Object.keys(stationSource).map( line => ({
+    const whereDataComesFrom = dataFromDatabase || {};
+    console.log('whereDataComesFrom', whereDataComesFrom)
+    //const whereDataComesFrom = stationSource;
+    const source = Object.keys(whereDataComesFrom).map( line => ({
         name: line,
-        data: stationSource[line].stations.map(mapSource),
-        color: stationSource[line].color,
+        data: whereDataComesFrom[line].stations.map(mapSource),
+        color: whereDataComesFrom[line].color,
+        number: whereDataComesFrom[line].number,
     }))
-
+    
     const lines = source.map( (line, index) => 
-        new Line(p, index + 1, line.color, line.data)
-    )
+        new Line(p, line.number, line.color, line.data)
+    ) 
 
     p.setup = () => {
         p.createCanvas(screen.w, screen.h);
@@ -220,16 +224,19 @@ function sketch(p, history){
 }
 
 function MetroMap({history}){
+    const [dataFromDatabase, setDataFromDatabase] = React.useState(null);
     React.useEffect(() => {
         async function receberLinhas(){
             const res = await axios.get('http://localhost:4550/lines');
-            console.log(res.ok, res.data)
+            console.log('response',res.ok, res.data)
+            if(res.data) setDataFromDatabase(res.data.data);
         }
         receberLinhas()
     }, [])
+    if(!dataFromDatabase) return null;
     return (
         <div style={{display: 'flex', justifyContent:'center', margin: 16, alignItems: 'center'}}>
-            <P5Wrapper sketch={p => sketch(p, history)}/>
+            <P5Wrapper sketch={p =>  sketch(p, history, dataFromDatabase)}/>
         </div>
     )
 }
