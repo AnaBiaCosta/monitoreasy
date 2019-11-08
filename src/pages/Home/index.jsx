@@ -8,7 +8,7 @@ import MetroMap from '../../componentes/MetroMap'
 // https://github.com/jerairrest/react-chartjs-2
 export default function Home() {
     return <>
-        <Header />
+        <Header title="Escolha" desc="sua estação" />
 
         <nav>
             <ul>

@@ -84,6 +84,7 @@ class Line{
                 totems: station.totems,
                 name: station.name,
                 enabled: station.enabled,
+                status: station.status,
                 x,
                 y,
                 hoverRadius,
@@ -113,7 +114,7 @@ class Line{
             p.push();
             p.translate(x,y - 20);
             p.rotate(p.radians(rotation));
-            if(station.totems.filter(t => !t.enabled).length > 0){
+            if(station.status != 'normal'){
                 p.fill(255,0,0);
             }
             p.text(station.name, 0, 0);
@@ -139,7 +140,6 @@ class Line{
             }
 
             if(onHover && p.mouseIsPressed){
-                console.log(station);
                 history.push('/line/'+station.id);
             }
 
@@ -171,7 +171,7 @@ class Line{
     }
 
     drawGUI(history){
-        this.p.image(this.gui, 0, 0);
+        //this.p.image(this.gui, 0, 0);
     }
 }
 
@@ -190,9 +190,10 @@ function sketch(p, history, dataFromDatabase){
         const enabled = Math.random() > .5;
         const totems = enabled ? generateTotems() : [];
         return {
-            id: index,
-            name: data,
-            enabled, 
+            id: data.id,
+            name: data.name,
+            enabled: data.active, 
+            status: data.status,
             totems
         }
     }
@@ -225,18 +226,22 @@ function sketch(p, history, dataFromDatabase){
 
 function MetroMap({history}){
     const [dataFromDatabase, setDataFromDatabase] = React.useState(null);
+    const [loading, setLoading] = React.useState(true);
     React.useEffect(() => {
         async function receberLinhas(){
             const res = await axios.get('http://localhost:4550/lines');
             console.log('response',res.ok, res.data)
-            if(res.data) setDataFromDatabase(res.data.data);
+            if(res.data) {
+                setDataFromDatabase(res.data.data);
+            }
+            setLoading(false);
         }
         receberLinhas()
     }, [])
-    if(!dataFromDatabase) return null;
     return (
         <div style={{display: 'flex', justifyContent:'center', margin: 16, alignItems: 'center'}}>
-            <P5Wrapper sketch={p =>  sketch(p, history, dataFromDatabase)}/>
+            {loading && <div><h1>Carregando...</h1></div>}
+            {!loading && <P5Wrapper sketch={p =>  sketch(p, history, dataFromDatabase)}/>}
         </div>
     )
 }
