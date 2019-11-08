@@ -37,7 +37,8 @@ export default function Station(props){
       <h2>Totens</h2> 
 
       <div className="totens-container">
-          {totems.map(totem => <Totem id={totem.id} stateId={totem.stationId} name={totem.reference}
+          {totems.length <= 0 && <h2>Carregando...</h2>}
+          {totems.map(totem => <Totem id={totem.id} station={info} name={totem.reference}
             serialNumber={totem.serialNumber} timeOperation={totem.timeOperation}
             cpu={totem.cpu} memory={totem.memory} disc={totem.disc} />)}
         </div>

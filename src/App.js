@@ -17,7 +17,7 @@ const App = () => (
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/line/:id" component={Line}/>
                 <Route exact path="/teste" component={Teste}/>
-                <Route exact path="/toteminfo" component={TotemInfo}/>
+                <Route exact path="/totem/:id" component={TotemInfo}/>
                 <Route exact path="/totemregister" component={TotemRegister}/>
                 <Route component={() => <div>Pagina não existe</div>}/>
             </Switch>

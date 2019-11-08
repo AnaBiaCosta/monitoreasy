@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import {Link} from 'react-router-dom'
 
 import Header from '../../componentes/Header'
@@ -14,7 +15,7 @@ var randomScalingFactor = function() {
     return Math.round(Math.random() * 100);
 };
 
-const dataBar = {
+const dataBar = (data) => ({
     labels: ['19:30', '19:31', '19:32', '19:33', '19:34', '19:35', '19:36'],
     datasets: [
       {
@@ -24,44 +25,24 @@ const dataBar = {
         borderWidth: 1,
         hoverBackgroundColor: '#82B1FF',
         hoverBorderColor: '#004D40',
-        data: [65, 59, 80, 81, 56, 55, 40]
+        data,
       }
     ]
-  };
-
-var dataMem = {
+  });
+var dataMem =  (data) => ({
     type: 'doughnut',
     labels: ["Em uso", "Disponível"],
     datasets: [{
-        data: [
-            10,
-            randomScalingFactor(),
-        ],
+        data,
         backgroundColor: [
             "#D3D3D3",
             "#00C853",
         ],
         label: 'Memória'
     }],
-    /*
-    options: {
-        responsive: true,
-        legend: {
-            position: 'top',
-        },
-        title: {
-            display: true,
-            text: 'Memória',
-            
-        },
-        animation: {
-            animateScale: true,
-            animateRotate: true
-        }
-    }*/
-};
+});
 
-const dataCPU = {
+const dataCPU = (data) =>( {
     labels: ['19:30', '19:31', '19:32', '19:33', '19:34', '19:35', '19:36'],
     datasets: [
       {
@@ -83,51 +64,68 @@ const dataCPU = {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [65, 59, 80, 81, 56, 55, 40]
+        data,
       }
     ]
-  };
+  });
 
+export default function TotemInfo({match : {params: { id}}}) {
+    const [data, setData] = React.useState([{}])
+    const [totem, setTotem] = React.useState({})
+    const [loading, setLoading] = React.useState(true)
 
-export default function Home() {
+    React.useEffect(() => {
+        async function getData(){
+            const res = await axios.get('http://localhost:4550/totems/data/list/'+id);
+            const resTotem = await axios.get('http://localhost:4550/totems/view/'+id);
+            setData(res.data.data);
+            setTotem(resTotem.data.data[0]);
+            console.log(res.data.data);
+            console.log(resTotem.data.data);
+            setLoading(false);
+        }
+        getData();
+    }, [id]);
+
+    const {name = 'Carregando...', stationName = 'Carregando...'} = totem || {};
+    const [{cpu: lastCpu, memory: lastMemory, disk: lastDisk, avaliableMemory} = {}] = data || [];
+
     return <>
-        <Header />
+        <Header title={stationName} desc={' - ' + name} />
         <nav>
             <ul>
-                <li><Link to="/">início</Link></li>
+                <li><Link to="/">Início</Link></li>
                 <li>></li>
-                <li><Link to="/line/3">estação santana</Link></li>
+                <li><Link to="/line/3">{stationName}</Link></li>
                 <li>></li>
-                <li className="text-bold"><Link to="/toteminfo">STN 01</Link></li>
+                <li className="text-bold"><Link to="/toteminfo">{name}</Link></li>
             </ul>
         </nav>
 
         <div class="containerTotem">
-            <CurrentStatus />
+            <CurrentStatus cpu={lastCpu} memory={lastMemory} disk={lastDisk}/>
             <div className="item-chart">
                 <p class="chart-title">CPU</p>
-                <Line data={dataCPU} />
+                <Line data={dataCPU(data.map(d => d.cpu))} />
 	        </div>
             
             <div className="item-chart">
                 <p class="chart-title">Disco</p>
                 <Bar
-          data={dataBar}
-          width={100}
-          height={50}
-          options={{
-            maintainAspectRatio: false
+                    data={dataBar(data.map(d => d.cpu))}
+                    width={100}
+                    height={50}
+                    options={{
+                maintainAspectRatio: false
           }}
         />
 	        </div>
 
             <div className="item-chart">
                 <p class="chart-title">Memória</p>
-                <Doughnut data={dataMem} />
+                <Doughnut data={dataMem([lastMemory, avaliableMemory])} />
 	        </div>
         </div>
         
     </>
 }
-
-

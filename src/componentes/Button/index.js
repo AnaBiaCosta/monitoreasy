@@ -1,10 +1,11 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 import './style.css'
 
-const Botao = ({ text, variant}) => (
-    <div className={`button ${variant}`} >
+const Botao = ({ text, href, variant}) => (
+    <Link to={href} className={`button ${variant}`} >
         <button>{text}</button>
-    </div>
+    </Link>
 )
 
 export default Botao 

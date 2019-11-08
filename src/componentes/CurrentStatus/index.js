@@ -1,9 +1,8 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 
 import './style.css' 
 
-const CurrentStatus = () => (
+const CurrentStatus = ({cpu, memory, disk}) => (
   <>
   <div class="container" id="parent">
   <div id="around">
@@ -22,13 +21,13 @@ const CurrentStatus = () => (
     
     <div id="child">
       <div class="percents">
-        <p>7%</p>
+        <p>{cpu}</p>
       </div>
       <div class="percents">
-        <p>77%</p>
+        <p>{memory}</p>
       </div>
       <div class="percents">
-        <p>0%</p>
+        <p>{disk}</p>
       </div>
     </div>
     
