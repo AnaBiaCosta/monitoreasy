@@ -1,8 +1,9 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 import './style.css' 
 
-const CurrentStatus = ({cpu, memory, disk}) => (
+const CurrentStatus = ({id, cpu, memory, disk}) => (
   <>
   <div class="container" id="parent">
   <div id="around">
@@ -44,9 +45,9 @@ const CurrentStatus = ({cpu, memory, disk}) => (
     </div>
     
     <div id="child">
-      <div class="button">
+        <Link to={`/history/${id}`}  class="button">
         <p>Histórico de Registros</p>
-      </div>
+      </Link>
     </div>
   </div>
 </div>

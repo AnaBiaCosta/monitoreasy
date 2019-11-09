@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Loading from '../../componentes/Loading';
 import {Link} from 'react-router-dom';
 import Header from '../../componentes/Header'
 import Totem from '../../componentes/Totem'
@@ -28,7 +28,7 @@ export default function Station(props){
 
       <nav>
             <ul>
-                <li><Link to="/">início</Link></li>
+                <li><Link to="/">Início</Link></li>
                 <li>></li>
                 <li className="text-bold"><Link to={`/line/${id}`}>{info.name|| "Carregando..."}</Link></li>
             </ul>
@@ -37,8 +37,8 @@ export default function Station(props){
       <h2>Totens</h2> 
 
       <div className="totens-container">
-          {totems.length <= 0 && <h2>Carregando...</h2>}
-          {totems.map(totem => <Totem id={totem.id} station={info} name={totem.reference}
+            <Loading is={!totems.length}>Carregando totens...</Loading>
+            {totems.map(totem => <Totem id={totem.id} station={info} name={totem.reference}
             serialNumber={totem.serialNumber} timeOperation={totem.timeOperation}
             cpu={totem.cpu} memory={totem.memory} disc={totem.disc} />)}
         </div>

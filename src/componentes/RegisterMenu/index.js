@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom'
 
 import './style.css'
 
-const RegisterMenu = () => (
+const RegisterMenu = ({stationId}) => (
     <div class="registro-menu">
         <div class="title-container">
-            <h1>histórico de registros</h1>
+            <h1>Histórico de Registros</h1>
 
             <div className="btn-container">
-                <a><Link to="/line/:id">voltar</Link></a>
-                <a><Link to="/">sair</Link></a>
+                <Link to={`/line/${stationId}`}>voltar</Link>
+                <Link to="/">sair</Link>
             </div>
         </div>
 

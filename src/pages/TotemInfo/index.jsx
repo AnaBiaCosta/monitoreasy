@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom'
-
+import Loading from '../../componentes/Loading';
 import Header from '../../componentes/Header'
 import '../TotemInfo/style.css'
 
@@ -10,10 +10,6 @@ import {Line} from 'react-chartjs-2'
 import {Bar} from 'react-chartjs-2';
 
 import CurrentStatus from '../../componentes/CurrentStatus'
-
-var randomScalingFactor = function() {
-    return Math.round(Math.random() * 100);
-};
 
 const dataBar = (data) => ({
     labels: ['19:30', '19:31', '19:32', '19:33', '19:34', '19:35', '19:36'],
@@ -102,8 +98,9 @@ export default function TotemInfo({match : {params: { id}}}) {
             </ul>
         </nav>
 
-        <div class="containerTotem">
-            <CurrentStatus cpu={lastCpu} memory={lastMemory} disk={lastDisk}/>
+        <Loading is={loading}>Carregando dados do totem...</Loading>
+        {!loading && <div class="containerTotem">
+            <CurrentStatus id={id} cpu={lastCpu} memory={lastMemory} disk={lastDisk}/>
             <div className="item-chart">
                 <p class="chart-title">CPU</p>
                 <Line data={dataCPU(data.map(d => d.cpu))} />
@@ -125,7 +122,7 @@ export default function TotemInfo({match : {params: { id}}}) {
                 <p class="chart-title">Memória</p>
                 <Doughnut data={dataMem([lastMemory, avaliableMemory])} />
 	        </div>
-        </div>
+        </div>}
         
     </>
 }

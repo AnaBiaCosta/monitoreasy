@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom';
 import P5Wrapper from 'react-p5-wrapper';
 import stationSource from './placeholder_metro.json';
 import axios from 'axios'
+import Loading from '../Loading';
 
 const colors = {
     black: "#333",
@@ -240,7 +241,7 @@ function MetroMap({history}){
     }, [])
     return (
         <div style={{display: 'flex', justifyContent:'center', margin: 16, alignItems: 'center'}}>
-            {loading && <div><h1>Carregando...</h1></div>}
+            <Loading is={loading}>Carregando estações...</Loading>
             {!loading && <P5Wrapper sketch={p =>  sketch(p, history, dataFromDatabase)}/>}
         </div>
     )
