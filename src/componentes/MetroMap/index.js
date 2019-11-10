@@ -140,7 +140,7 @@ class Line{
                 y: screen.h > y + tooltip.h ? y : y - tooltip.h,
             }
 
-            if(onHover && p.mouseIsPressed){
+            if(onHover && p.mouseIsPressed && station.enabled){
                 history.push('/line/'+station.id);
             }
 

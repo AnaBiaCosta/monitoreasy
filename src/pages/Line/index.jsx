@@ -18,10 +18,8 @@ export default function Station(props){
           setInfo(resStation.data.data[0]);
       }
       getLines();
-      
+      setInterval(getLines, 30000);
   }, [id]);
-
-   React.useEffect(() => console.log('nova info' , info), [info]);
 
   return <>
       <Header title={"Estação -"} desc={info.name || "Carregando..."} />
@@ -38,7 +36,7 @@ export default function Station(props){
 
       <div className="totens-container">
             <Loading is={!totems.length}>Carregando totens...</Loading>
-            {totems.map(totem => <Totem id={totem.id} station={info} name={totem.reference}
+            {totems.map(totem => <Totem id={totem.id} station={info} name={totem.name}
             serialNumber={totem.serialNumber} timeOperation={totem.timeOperation}
             cpu={totem.cpu} memory={totem.memory} disc={totem.disc} />)}
         </div>
