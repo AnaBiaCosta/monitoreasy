@@ -20,10 +20,17 @@ const config = {
         pointHitRadius: 10,
 }
 
-const generate = (label, data) =>( {
-    labels: ['19:30', '19:31', '19:32', '19:33', '19:34', '19:35', '19:36'],
+const generate = (label, data, max, time=[1,2,3]) =>( {
+    labels: time,
     datasets: [
         { ...config, label, data, },
+        { ...config, label: 'Média', 
+            data: new Array(data.length)
+            .fill(Math.floor(data.reduce((curr, i) => curr + i, 0) / data.length)),
+        },
+        { ...config, label: 'Crítico', 
+            data: new Array(data.length).fill(70),
+        },
     ]
   });
 
