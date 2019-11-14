@@ -15,9 +15,6 @@ const CurrentStatus = ({id, cpu, memory, disk}) => (
       <div class="titles">
         <p>MEMÓRIA</p>
       </div>
-      <div class="titles">
-        <p>DISCO</p>
-      </div>
     </div>
     
     <div id="child">
@@ -27,9 +24,6 @@ const CurrentStatus = ({id, cpu, memory, disk}) => (
       <div class="percents">
         <p>{memory}</p>
       </div>
-      <div class="percents">
-        <p>{disk}</p>
-      </div>
     </div>
     
     <div id="child">
@@ -38,9 +32,6 @@ const CurrentStatus = ({id, cpu, memory, disk}) => (
       </div>
       <div class="values">
         <p>6,1/7,9 GB</p>
-      </div>
-      <div class="values">
-        <p>0 KB/s</p>
       </div>
     </div>
     

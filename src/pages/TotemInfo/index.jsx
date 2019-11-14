@@ -68,10 +68,6 @@ export default function TotemInfo({match : {params: { id}}}) {
                 <p class="chart-title">RAM</p>
                 <Relational label="RAM" data={data.map(i => i.memory)}/>
 	        </div>
-            <div className="item-chart">
-                <p class="chart-title">Disco</p>
-                <Relational label="Disco" data={data.map(i => i.disk)}/>
-	        </div>
 
         </div>}
         

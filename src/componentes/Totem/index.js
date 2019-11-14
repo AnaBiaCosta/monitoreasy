@@ -54,7 +54,6 @@ const Totem = ({ id, station, name, serialNumber, }) => {
                             {!loading && <>
                                 <p className="text-numbers">CPU: <span className={`number ${status}`}>{cpu || 0} {cpuUnit}</span></p>
                                 <p className="text-numbers">Memória: <span className={`number ${status}`}>{memory || 0} {memoryUnit}</span></p>
-                                <p className="text-numbers">Disco: <span className={`number ${status}`}>{disk || 0} {diskUnit}</span></p>
                             </>}
                         </div>
                     </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import alertify from 'alertifyjs';
 import {withRouter} from 'react-router-dom';
 import P5Wrapper from 'react-p5-wrapper';
 import stationSource from './placeholder_metro.json';
@@ -31,6 +32,7 @@ class Line{
         this.gui = p.createGraphics(screen.w, screen.h);
         this.number = number;
         this.color = color;
+        this.wasPressedAlready = false;
 
         this.stations = stations; 
     }
@@ -140,10 +142,13 @@ class Line{
                 y: screen.h > y + tooltip.h ? y : y - tooltip.h,
             }
 
-            if(onHover && p.mouseIsPressed && station.enabled){
-                history.push('/line/'+station.id);
+            if(onHover && p.mouseIsPressed){
+                if(station.enabled){
+                    history.push('/line/'+station.id);
+                }else if(!this.wasPressedAlready){
+                    alertify.error("Esta estação está desabilitada.");
+                }
             }
-
             if(onHover && enabled){
                 gui.stroke(this.color);
 
@@ -168,6 +173,13 @@ class Line{
                 });
             }
         })
+            console.log(this.wasPressedAlready);
+            if(p.mouseIsPressed){
+                this.wasPressedAlready = true;
+            }else{
+                this.wasPressedAlready = false;
+            }
+
 
     }
 
