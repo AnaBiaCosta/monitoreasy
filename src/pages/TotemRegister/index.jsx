@@ -9,24 +9,20 @@ import CardRegister from '../../componentes/CardRegister'
 import AlertCard from '../../componentes/AlertCard'
 
 function TotemRegister({match : {params: { id}}}) {
-    const [data, setData] = React.useState([{}])
     const [totem, setTotem] = React.useState({})
     const [loading, setLoading] = React.useState(true)
 
     React.useEffect(() => {
         async function getData(){
-            const res = await axios.get('http://localhost:4550/totems/data/list/'+id);
-            const resTotem = await axios.get('http://localhost:4550/totems/view/'+id);
-            setData(res.data.data);
-            setTotem(resTotem.data.data[0]);
-            console.log(res.data.data);
-            console.log(resTotem.data.data[0]);
+            const res = await axios.get(`http://localhost:4550/totem/${id}`);
+            if(res.status === 200) setTotem(res.data);
+            console.log(res.data);
             setLoading(false);
         }
         getData();
     }, [id]);
 
-    const {name, stationName, stationId} = totem;
+    const {name, station: {name: stationName, id: stationId} = {}} = totem;
 
     return <>
         <RegisterMenu stationId={stationId}/>
@@ -46,12 +42,12 @@ function TotemRegister({match : {params: { id}}}) {
         <Loading is={loading}>Carregando dados do totem...</Loading>
         {!loading && <div className="container">
             <div className="cards-container">
-                <CardRegister cardName="CPU"/>
-                <CardRegister cardName="Memória"/>
-                <CardRegister cardName="Disco"/>
-                <CardRegister cardName="Processos"/>
+                <CardRegister type="cpu" cardName="CPU" totem={totem}/>
+                <CardRegister  type="memory" cardName="Memória" totem={totem}/>
+                {/*<CardRegister cardName="Disco" totem={totem}/>*/}
+                {/*<CardRegister cardName="Processos" totem={totem}/>*/}
             </div>
-            <AlertCard cardName="Histórico de alertas"/>
+            <AlertCard cardName="Histórico de alerta" totem={totem}/>
         </div>}
     </>
 }

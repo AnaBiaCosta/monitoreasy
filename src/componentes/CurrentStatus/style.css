@@ -74,14 +74,14 @@
   line-height: 33px;
   text-align: center;
   color: #FFFFFF;
-  background-color: #00C853;
+  background-color: #333;
   border-radius: 7px;
   margin: 40px 0px 30px 0px;
   cursor: pointer;
-
 }
 
 #around {
   border: 2px solid #f1f1f1;
+  box-shadow: #3333 0 0 10px;
   width: 469px;
 }

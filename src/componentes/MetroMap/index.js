@@ -2,7 +2,6 @@ import React from 'react';
 import alertify from 'alertifyjs';
 import {withRouter} from 'react-router-dom';
 import P5Wrapper from 'react-p5-wrapper';
-import stationSource from './placeholder_metro.json';
 import axios from 'axios'
 import Loading from '../Loading';
 
@@ -211,14 +210,14 @@ function sketch(p, history, dataFromDatabase){
         }
     }
 
-    const whereDataComesFrom = dataFromDatabase || {};
+    const whereDataComesFrom = dataFromDatabase || [];
     console.log('whereDataComesFrom', whereDataComesFrom)
     //const whereDataComesFrom = stationSource;
-    const source = Object.keys(whereDataComesFrom).map( line => ({
-        name: line,
-        data: whereDataComesFrom[line].stations.map(mapSource),
-        color: whereDataComesFrom[line].color,
-        number: whereDataComesFrom[line].number,
+    const source = whereDataComesFrom.map( line => ({
+        name: line.name,
+        data: line.stations.map(mapSource),
+        color: line.color,
+        number: line.number,
     }))
     
     const lines = source.map( (line, index) => 
@@ -242,10 +241,10 @@ function MetroMap({history}){
     const [loading, setLoading] = React.useState(true);
     React.useEffect(() => {
         async function receberLinhas(){
-            const res = await axios.get('http://localhost:4550/lines');
+            const res = await axios.get('http://localhost:4550/home');
             console.log('response',res.ok, res.data)
             if(res.data) {
-                setDataFromDatabase(res.data.data);
+                setDataFromDatabase(res.data);
             }
             setLoading(false);
         }

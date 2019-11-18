@@ -15,6 +15,7 @@
 
 .containerTotem .item-chart {
     margin: 30px 10px;
+    box-shadow: #3333 0 0 10px;
     border: 2px solid #f1f1f1;
     width: 35%;
     padding: 15px;

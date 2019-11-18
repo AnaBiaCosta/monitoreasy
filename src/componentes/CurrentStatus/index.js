@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 import './style.css' 
 
-const CurrentStatus = ({id, cpu, memory, disk}) => (
+const CurrentStatus = ({id, cpu, memory, cpuUnit, memoryUnit}) => (
   <>
   <div class="container" id="parent">
   <div id="around">
@@ -28,10 +28,10 @@ const CurrentStatus = ({id, cpu, memory, disk}) => (
     
     <div id="child">
       <div class="values">
-        <p>0,97 GHz</p>
+        <p>{cpuUnit}</p>
       </div>
       <div class="values">
-        <p>6,1/7,9 GB</p>
+        <p>{memoryUnit}</p>
       </div>
     </div>
     

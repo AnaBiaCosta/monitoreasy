@@ -10,7 +10,7 @@ const AlertInformation = ({statusColor, status, dateTime, details}) => (
             <div className="text-container">
                 <p className="text-bold">{status}</p>
                 <p className="card-text">{dateTime}</p>
-                <p className="card-text">Details: {details}</p>
+                <p className="card-text">Detalhes: {details}</p>
             </div>
         </div>
 ) 

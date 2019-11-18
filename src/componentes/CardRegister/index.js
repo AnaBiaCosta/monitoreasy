@@ -4,15 +4,33 @@ import CardInformation from '../../componentes/CardInformation'
 
 import './style.css'
 
+function formatDate(time){
+    return new Date(time).toLocaleDateString()
+}
 
-const CardRegister = ({cardName}) => (
-    <div className="card-body">
-        <h2>{cardName}</h2>
+const translate = {
+    cpu: 'cpu',
+    memory: 'memória',
+}
 
-        <CardInformation statusColor="bk-danger" percent="95%" dateTime="12/10/19 - 12:33:56" details="line text lorem ipsum "/>
-        <CardInformation statusColor="bk-alert" percent="40%" dateTime="12/10/19 - 12:33:56" details="line text lorem ipsum "/>
-        <CardInformation statusColor="bk-normal" percent="20%" dateTime="12/10/19 - 12:33:56" details="line text lorem ipsum "/>
-    </div>
-) 
+const CardRegister = ({cardName, totem, type}) => {
+
+    const three = totem.registers.slice(0, 16);
+
+    return (
+        <div className="card-body">
+            <h2>{cardName}</h2>
+
+            {three.map( register => (
+                <CardInformation 
+                    statusColor={`bk-${register.status}`} 
+                    percent={`${register[type]} ${register[`${type}Unit`]}`} 
+                    dateTime={`${formatDate(register.moment)}`} 
+                    details={`Informação de ${translate[type]}`}
+                />
+            ))}
+        </div>
+    ) 
+}
   
 export default CardRegister

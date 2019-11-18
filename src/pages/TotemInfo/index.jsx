@@ -8,35 +8,45 @@ import '../TotemInfo/style.css'
 import MemoryPie from '../../componentes/Graphs/MemoryPie';
 import Relational from '../../componentes/Graphs/Relational';
 
-import {Line} from 'react-chartjs-2'
-import {Bar} from 'react-chartjs-2';
-
 import CurrentStatus from '../../componentes/CurrentStatus'
 
 export default function TotemInfo({match : {params: { id}}}) {
-    const [data, setData] = React.useState([{}])
     const [totem, setTotem] = React.useState({})
     const [loading, setLoading] = React.useState(true)
 
     React.useEffect(() => {
         async function getData(){
-            const res = await axios.get('http://localhost:4550/totems/data/list/'+id);
-            const resTotem = await axios.get('http://localhost:4550/totems/view/'+id);
-            setData(res.data.data);
-            setTotem(resTotem.data.data[0]);
-            console.log(res.data.data);
-            console.log(resTotem.data.data);
+            const res = await axios.get(`http://localhost:4550/totem/${id}`);
+            if(res.status === 200) setTotem(res.data);
             setLoading(false);
         }
         getData();
         setInterval(getData, 30000);
     }, [id]);
 
-    const {name = 'Carregando...', stationId,stationName = 'Carregando...'} = totem || {};
-    const [{cpu: lastCpu, memory: lastMemory, disk: lastDisk, avaliableMemory} = {}] = data || [];
+    const {
+        name = 'Carregando...',
+        station : {
+            id: stationId,
+            name: stationName = 'Carregando...',
+        } = {},
+        line: {
+            color = "#333",
+        } = {},
+        registers = [{}],
+    } = totem;
+
+    const [{
+        cpu: lastCpu,
+        memory: lastMemory,
+        disk: lastDisk,
+        avaliableMemory,
+        cpuUnit,
+        memoryUnit,
+    }] = registers;
 
     return <>
-        <Header title={stationName} desc={' - ' + name} />
+        <Header color={color} title={stationName} desc={' - ' + name} />
         <nav>
             <ul>
                 <li><Link to="/">Início</Link></li>
@@ -52,21 +62,26 @@ export default function TotemInfo({match : {params: { id}}}) {
         {!loading &&
             <div class="containerTotem">
 
-            <CurrentStatus id={id} cpu={lastCpu} memory={lastMemory} disk={lastDisk}/>
+            <CurrentStatus id={id} cpu={lastCpu} memory={lastMemory} cpuUnit={cpuUnit} memoryUnit={memoryUnit}/>
 
             <div className="item-chart">
                 <p class="chart-title">Memória</p>
                 <MemoryPie lastMemory={lastMemory} avaliableMemory={avaliableMemory}/>
 	        </div>
 
- 
             <div className="item-chart">
                 <p class="chart-title">CPU</p>
-                <Relational label="CPU" data={data.map(i => i.cpu)}/>
+                <Relational label="CPU" 
+                    data={registers.map(i => i.cpu).reverse()}
+                    time={registers.map(i => new Date(i.moment).toLocaleDateString()).reverse()}
+                />
 	        </div>
             <div className="item-chart">
                 <p class="chart-title">RAM</p>
-                <Relational label="RAM" data={data.map(i => i.memory)}/>
+                <Relational label="RAM" 
+                    data={registers.reverse().map(i => i.memory).reverse()}
+                    time={registers.reverse().map(i => new Date(i.moment).toLocaleDateString()).reverse()}
+                />
 	        </div>
 
         </div>}

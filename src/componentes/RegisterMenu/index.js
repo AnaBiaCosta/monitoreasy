@@ -21,12 +21,12 @@ const RegisterMenu = ({stationId}) => (
         <div class="search-container">
             <div>
                 <p>De:</p>
-                <input type="date"></input>
+                <input type="date" value="2019-11-01"/>
             </div>
 
             <div>
                 <p>Até:</p>
-                <input type="date"></input>
+                <input type="date" value="2019-12-01"/>
             </div>
         </div>
     </div>

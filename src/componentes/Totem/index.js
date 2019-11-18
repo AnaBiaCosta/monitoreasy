@@ -1,5 +1,5 @@
 import React from 'react'
-import {withRouter, Link} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 import Botao from '../Button'
 import './style.css'
@@ -14,32 +14,29 @@ const dicionario = {
     normal: 'operação normal'
 }
 
-function formatTime(time){
-    return Math.floor(time / 1000) || 0 + ' min';
+function formatTime(time, status){
+    if(status == 'disable')
+        return 'desligado';
+    return Math.floor(time / 1000) || 1 + ' min';
 }
 
-// pegando os valores enviados pelo backend
 const Totem = ({ id, station, name, serialNumber, }) => {
-    //mensagem exibida enquanto os dados são carregados
-    const [data, setData] = React.useState({})
+    const [totem, setTotem] = React.useState({})
     const [loading, setLoading] = React.useState(true)
 
-    const {activeTime, status, cpu, memory, disk, memoryUnit, diskUnit, cpuUnit} = data || {};
+    const {activeTime, status, cpu, memory, memoryUnit, cpuUnit} = totem;
 
     React.useEffect(() => {
         async function getData(){
-            const res = await axios.get('http://localhost:4550/totems/data/'+id);
-            setData(res.data.data[0]);
-            console.log(res.data.data[0]);
+            const res = await axios.get(`http://localhost:4550/totem/${id}`);
+            if(res.status === 200) setTotem(res.data.registers[0] || [{}]);
+            console.log(res.data.registers[0])
             setLoading(false);
         }
         getData();
     }, [id]);
 
-    // a partir do valr do status troca as cores dos totens
-
     return (
-        // <div className={`totem-body ${status}`} >
             <div className="totem-body" >
                     <div>
                         <h3 className="totem-name">{name}</h3>
@@ -61,7 +58,7 @@ const Totem = ({ id, station, name, serialNumber, }) => {
                     <div className="totem-information">
                         <div className="totem-identification">
                             <p className="text-bold mb">n° de série: <span className={`text-normal ${status}`}>{serialNumber}</span></p>
-                            <p className="text-bold">tempo ativo: <span className={`text-normal ${status}`}>{formatTime(activeTime)}</span></p>
+                            <p className="text-bold">tempo ativo: <span className={`text-normal ${status}`}>{formatTime(activeTime, status)}</span></p>
                         </div>
 
 

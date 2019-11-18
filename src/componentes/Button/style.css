@@ -11,7 +11,7 @@ button{
 
 .primary{
     border: 2px solid #00C853;
-    background-color: #00C853;
+    background-color: #333;
     border-radius: 7px;
     text-align: center;
 }
