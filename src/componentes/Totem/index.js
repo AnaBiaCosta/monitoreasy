@@ -28,7 +28,7 @@ const Totem = ({ id, station, name, serialNumber, }) => {
 
     React.useEffect(() => {
         async function getData(){
-            const res = await axios.get(`http://localhost:4550/totem/${id}`);
+            const res = await axios.get(`http://apimonitoreasy.herokuapp.com/totem/${id}`);
             if(res.status === 200) setTotem(res.data.registers[0] || [{}]);
             console.log(res.data.registers[0])
             setLoading(false);

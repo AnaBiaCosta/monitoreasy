@@ -241,7 +241,7 @@ function MetroMap({history}){
     const [loading, setLoading] = React.useState(true);
     React.useEffect(() => {
         async function receberLinhas(){
-            const res = await axios.get('http://localhost:4550/home');
+            const res = await axios.get('http://apimonitoreasy.herokuapp.com/home');
             console.log('response',res.ok, res.data)
             if(res.data) {
                 setDataFromDatabase(res.data);

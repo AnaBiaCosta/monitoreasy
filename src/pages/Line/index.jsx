@@ -14,7 +14,7 @@ export default function Station(props){
 
     React.useEffect(() => {
         async function getLines(){
-            const res = await axios.get(`http://localhost:4550/station/${id}`);
+            const res = await axios.get(`http://apimonitoreasy.herokuapp.com/station/${id}`);
             console.log(res)
             if(res.status === 200) setInfo(res.data);
             setLoading(false)

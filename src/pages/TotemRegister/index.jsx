@@ -14,7 +14,7 @@ function TotemRegister({match : {params: { id}}}) {
 
     React.useEffect(() => {
         async function getData(){
-            const res = await axios.get(`http://localhost:4550/totem/${id}`);
+            const res = await axios.get(`http://apimonitoreasy.herokuapp.com/totem/${id}`);
             if(res.status === 200) setTotem(res.data);
             console.log(res.data);
             setLoading(false);

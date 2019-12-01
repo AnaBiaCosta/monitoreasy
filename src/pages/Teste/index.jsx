@@ -19,7 +19,7 @@ export default function Teste(){
 
     React.useEffect(() => {
         async function getLines(){
-            const res = await axios.get('http://localhost:4550/lines/list');
+            const res = await axios.get('http://apimonitoreasy.herokuapp.com/lines/list');
             setLines(res.data.data);
             console.log(res.data);
         }
